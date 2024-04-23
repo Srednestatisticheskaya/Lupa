@@ -3,7 +3,7 @@ package com.example.Joke.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import com.example.Joke.model.Db_Pupa_I_Lupa;
+import com.example.Joke.model.DbPupaILupa;
 import com.example.Joke.repository.PupaRepositoryInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +17,17 @@ public class PupaService implements PupaServiceInterface{
     private final PupaRepositoryInterface jokes;
 
     @Override
-    public void addjoke(Db_Pupa_I_Lupa joke){
+    public void addjoke(DbPupaILupa joke){
         joke.setCreated(new Date());
         jokes.save(joke);
 
     }
     @Override
-    public List<Db_Pupa_I_Lupa> getAllJokes(){
+    public List<DbPupaILupa> getAllJokes(){
         return jokes.findAll();
     }
     @Override
-    public Optional<Db_Pupa_I_Lupa> getJokeById(Long id){
+    public Optional<DbPupaILupa> getJokeById(Long id){
         return jokes.findById(id);
     }
     @Override
@@ -41,10 +41,10 @@ public class PupaService implements PupaServiceInterface{
         }
     }
     @Override
-    public Optional<Db_Pupa_I_Lupa> editJokeById(Long id, String text) {
-        Optional<Db_Pupa_I_Lupa> optionalJoke = jokes.findById(id);
+    public Optional<DbPupaILupa> editJokeById(Long id, String text) {
+        Optional<DbPupaILupa> optionalJoke = jokes.findById(id);
         if (optionalJoke.isPresent()){
-            Db_Pupa_I_Lupa joke = optionalJoke.get();
+            DbPupaILupa joke = optionalJoke.get();
             joke.setText(text);
             joke.setUpdated(new Date());
             jokes.save(joke);

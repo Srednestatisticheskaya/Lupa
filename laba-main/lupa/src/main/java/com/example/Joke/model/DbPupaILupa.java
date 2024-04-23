@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity(name = "jokes")
 @Table(name = "jokes")
-public class Db_Pupa_I_Lupa {
+public class DbPupaILupa {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
